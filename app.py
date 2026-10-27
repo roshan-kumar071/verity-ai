@@ -1,8 +1,9 @@
-
 import streamlit as st
 import requests
 from verity.search import search_web
 from verity.processing import process_sources
+from verity.claims import extract_claims
+from verity.evidence import compare_evidence
 
 st.set_page_config(
     page_title="Verity AI | Research Workspace",
@@ -76,6 +77,11 @@ if start_research:
                 )
                 results = process_sources(results)
 
+                with st.expander("Debug: Original source text"):
+                    for i, source in enumerate(results, start=1):
+                        st.write(f"Source {i}: {source.get('title', '')}")
+                        st.code(source.get("content", ""))
+
             if not results:
                 st.warning("No sources found. Try a different question.")
             else:
@@ -101,6 +107,75 @@ if start_research:
                     "Source credibility and conflicting evidence have not "
                     "yet been independently assessed."
                 )
+
+
+            claims = extract_claims(results, question.strip())
+
+            st.subheader("Extracted Claims")
+
+            if not claims:
+                st.write("No suitable statements were found in these sources.")
+            else:
+                st.write(f"Extracted {len(claims)} candidate claims.")
+
+                for i, claim in enumerate(claims, start=1):
+                    with st.expander(f"{i}. {claim['claim']}"):
+                        st.write("**Source:**", claim["source_title"])
+
+                        if claim["source_url"]:
+                            st.markdown(
+                                f"[Open original source]({claim['source_url']})"
+                            )
+
+            st.caption(
+                "These are candidate claims extracted from search-result text. "
+                "They have not been fact-checked."
+            )
+
+            st.subheader("Evidence Comparison")
+
+            st.warning(
+                "These are preliminary rule-based classifications, "
+                "not verified fact-check conclusions."
+            )
+
+            for claim_index, claim in enumerate(claims, start=1):
+                comparison = compare_evidence(
+                    claim["claim"],
+                    results,
+                )
+
+                with st.expander(
+                    f"Claim {claim_index}: {claim['claim']}"
+                ):
+                    categories = [
+                        ("Supporting Evidence", comparison["supporting"]),
+                        ("Contradicting Evidence", comparison["contradicting"]),
+                        ("Insufficient Evidence", comparison["insufficient"]),
+                    ]
+
+                    for category_name, evidence_items in categories:
+                        st.markdown(
+                            f"**{category_name} ({len(evidence_items)})**"
+                        )
+
+                        if not evidence_items:
+                            st.write("No sources in this category.")
+                            continue
+
+                        for item in evidence_items:
+                            st.write(
+                                item["source_title"] or "Untitled source"
+                            )
+                            st.caption(
+                                f"Keyword overlap: {item['keyword_overlap']:.0%}"
+                            )
+                            st.write(item["text"])
+
+                            if item["source_url"]:
+                                st.markdown(
+                                    f"[Open original source]({item['source_url']})"
+                                )
 
         except requests.RequestException:
             st.error(
@@ -140,7 +215,4 @@ with col3:
 
 st.divider()
 
-st.caption(
-    "Verity AI · Early prototype · "
-    "Evidence before conclusions"
-)
+st.caption("Verity AI · Early prototype · " "Evidence before conclusions")
