@@ -42,7 +42,7 @@ CASES = [
         "source": "Office lighting improves employee productivity.",
         "expected": "insufficient",
     },
-    
+
     {
         "name": "negated_claim",
         "claim": "Remote work improves employee productivity.",
@@ -79,7 +79,7 @@ CASES = [
         "source": "Remote work improves productivity.",
         "expected": "insufficient",
     },
-    
+
     {
         "name": "percentage_format_mismatch",
         "claim": "Remote work improves productivity by 40 percent.",
@@ -132,6 +132,66 @@ CASES = [
         "expected": "contradicting",
     },
 
+    {
+        "name": "support_with_extra_irrelevant_sentence",
+        "claim": "Regular exercise improves sleep quality.",
+        "source": (
+            "Regular exercise improves sleep quality. "
+            "Ocean temperatures affect coral reef growth."
+        ),
+        "expected": "supporting",
+    },
+    {
+        "name": "contradiction_with_extra_irrelevant_sentence",
+        "claim": "Regular exercise improves sleep quality.",
+        "source": (
+            "Regular exercise reduces sleep quality. "
+            "Ocean temperatures affect coral reef growth."
+        ),
+        "expected": "contradicting",
+    },
+    {
+        "name": "support_wrong_percentage",
+        "claim": "Remote work improves productivity by 40 percent.",
+        "source": "Remote work improves productivity by 25 percent.",
+        "expected": "insufficient",
+    },
+    {
+        "name": "support_missing_claim_outcome",
+        "claim": "Regular exercise improves sleep quality and cardiovascular health.",
+        "source": "Regular exercise improves sleep quality.",
+        "expected": "insufficient",
+    },
+    {
+        "name": "same_topic_wrong_population",
+        "claim": "Remote work improves productivity for new employees.",
+        "source": "Remote work improves productivity for experienced employees.",
+        "expected": "insufficient",
+    },
+    {
+        "name": "uncertain_support_with_extra_detail",
+        "claim": "Remote work improves employee productivity.",
+        "source": (
+            "Remote work may improve employee productivity "
+            "by reducing commuting time."
+        ),
+        "expected": "insufficient",
+    },
+    {
+        "name": "negation_hidden_in_longer_sentence",
+        "claim": "Regular exercise improves sleep quality.",
+        "source": (
+            "Although exercise is popular, regular exercise "
+            "does not improve sleep quality."
+        ),
+        "expected": "insufficient",
+    },
+    {
+        "name": "same_topic_opposite_outcome",
+        "claim": "Using SSDs improves computer startup speed.",
+        "source": "Using SSDs reduces computer startup speed.",
+        "expected": "contradicting",
+    },
 ]
 
 

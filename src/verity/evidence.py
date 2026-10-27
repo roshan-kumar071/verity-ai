@@ -49,6 +49,35 @@ def has_subject_mismatch(claim: str, sentence: str) -> bool:
     return bool(claim_groups and sentence_groups and claim_groups.isdisjoint(sentence_groups))
 
 
+def has_population_mismatch(claim: str, sentence: str) -> bool:
+    """Detect a few explicit employee/student population mismatches."""
+    population_groups = [
+        {"new employees", "experienced employees"},
+        {"junior employees", "senior employees"},
+        {"beginner", "advanced users"},
+        {"children", "adults"},
+        {"students", "teachers"},
+    ]
+
+    claim_lower = claim.casefold()
+    sentence_lower = sentence.casefold()
+
+    for group in population_groups:
+        claim_populations = {
+            population for population in group
+            if population in claim_lower
+        }
+        sentence_populations = {
+            population for population in group
+            if population in sentence_lower
+        }
+
+        if claim_populations and sentence_populations:
+            if claim_populations.isdisjoint(sentence_populations):
+                return True
+
+    return False
+
 def has_number_mismatch(claim: str, sentence: str) -> bool:
     """Reject evidence when claim and sentence contain different numbers."""
     claim_numbers = re.findall(r"\b\d+(?:\.\d+)?%?\b", claim)
@@ -170,13 +199,16 @@ def classify_evidence(claim: str, source_text: str) -> str:
         if has_subject_mismatch(claim, sentence):
             results.append("insufficient")
             continue
+        if has_population_mismatch(claim, sentence):
+            results.append("insufficient")
+            continue
         sentence_lower = sentence.casefold()
         sentence_words = get_keywords(sentence)
 
         if not sentence_words:
             continue
 
-        
+
         overlap = claim_words & sentence_words
         relevance = len(overlap) / len(claim_words)
 
@@ -215,15 +247,17 @@ def classify_evidence(claim: str, source_text: str) -> str:
         else:
             results.append("contradicting")
 
+
     decisive_results = {
         result for result in results
         if result in {"supporting", "contradicting"}
     }
 
+    # No decisive evidence, or conflicting decisive evidence.
     if len(decisive_results) != 1:
         return "insufficient"
 
-    if "insufficient" in results:
-        return "insufficient"
-
+    # Ignore irrelevant/uncertain sentences when another sentence
+    # provides a clear, consistent result. Conflicting decisive
+    # sentences still produce "insufficient".
     return next(iter(decisive_results))
