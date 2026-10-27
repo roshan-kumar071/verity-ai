@@ -2,6 +2,7 @@
 import streamlit as st
 import requests
 from verity.search import search_web
+from verity.processing import process_sources
 
 st.set_page_config(
     page_title="Verity AI | Research Workspace",
@@ -73,6 +74,7 @@ if start_research:
                     question.strip(),
                     max_results=source_count,
                 )
+                results = process_sources(results)
 
             if not results:
                 st.warning("No sources found. Try a different question.")
