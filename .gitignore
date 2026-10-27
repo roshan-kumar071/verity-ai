@@ -10,3 +10,7 @@ __pycache__/
 .pytest_cache/
 .coverage
 .DS_Store
+# Generated Python package metadata
+*.egg-info/
+build/
+dist/

@@ -1,5 +1,7 @@
 
 import streamlit as st
+import requests
+from verity.search import search_web
 
 st.set_page_config(
     page_title="Verity AI | Research Workspace",
@@ -55,24 +57,57 @@ start_research = st.button(
     use_container_width=True,
 )
 
+
 if start_research:
     if not question.strip():
         st.warning("Please enter a research question first.")
     else:
-        st.info(
-            "Research pipeline is not connected yet. "
-            "This prototype captures your research settings only."
-        )
+        st.subheader("Search Results")
 
-        st.markdown("### Your research task")
-        st.write("**Question:**", question.strip())
+        st.write("**Research question:**", question.strip())
         st.write("**Research mode:**", research_mode)
-        st.write("**Maximum search results:**", source_count)
 
-        st.caption(
-            "No live search, evidence verification, "
-            "or AI-generated conclusions are performed yet."
-        )
+        try:
+            with st.spinner("Searching the web..."):
+                results = search_web(
+                    question.strip(),
+                    max_results=source_count,
+                )
+
+            if not results:
+                st.warning("No sources found. Try a different question.")
+            else:
+                st.success(f"Found {len(results)} sources.")
+
+                for i, source in enumerate(results, start=1):
+                    title = source["title"] or "Untitled source"
+                    url = source["url"]
+                    content = source["content"]
+
+                    with st.expander(f"{i}. {title}", expanded=(i == 1)):
+                        if url:
+                            st.markdown(f"[Open source]({url})")
+                        if content:
+                            st.write(content)
+                        if source["score"] is not None:
+                            st.caption(
+                                f"Search relevance score: {source['score']}"
+                            )
+
+                st.info(
+                    "These are search results, not verified conclusions. "
+                    "Source credibility and conflicting evidence have not "
+                    "yet been independently assessed."
+                )
+
+        except requests.RequestException:
+            st.error(
+                "Web search request failed. Check your internet connection "
+                "and Tavily API status, then try again."
+            )
+        except RuntimeError as error:
+            st.error(str(error))
+
 
 st.divider()
 
