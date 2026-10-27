@@ -90,9 +90,33 @@ def has_uncovered_claim_parts(claim: str, sentence: str) -> bool:
     claim_lower = claim.casefold()
     sentence_lower = sentence.casefold()
 
+    magnitude_groups = [
+        {"dramatically", "substantially", "significantly", "greatly"},
+        {"slightly", "marginally", "modestly"},
+    ]
+
+    claim_magnitudes = {
+        index
+        for index, group in enumerate(magnitude_groups)
+        if any(term in claim_lower for term in group)
+    }
+    sentence_magnitudes = {
+        index
+        for index, group in enumerate(magnitude_groups)
+        if any(term in sentence_lower for term in group)
+    }
+
+    if (
+        claim_magnitudes
+        and sentence_magnitudes
+        and claim_magnitudes.isdisjoint(sentence_magnitudes)
+    ):
+        return True
+
     outcome_groups = [
         {"productivity", "productive"},
         {"satisfaction", "satisfied"},
+        {"retention", "retain", "retained"},
         {"performance"},
         {"health"},
         {"sleep"},
@@ -181,6 +205,14 @@ def classify_evidence(claim: str, source_text: str) -> str:
         r"\bmixed results\b", r"\bresults vary\b",
     ]
 
+    conditional_patterns = [
+        r"\bonly when\b",
+        r"\bonly if\b",
+        r"\bprovided that\b",
+        r"\bon the condition that\b",
+        r"\bdepends on\b",
+    ]
+
     claim_positive = bool(claim_words & positive_words)
     claim_negative = bool(claim_words & negative_words)
 
@@ -203,6 +235,12 @@ def classify_evidence(claim: str, source_text: str) -> str:
             results.append("insufficient")
             continue
         sentence_lower = sentence.casefold()
+        if any(
+            re.search(pattern, sentence_lower)
+            for pattern in conditional_patterns
+        ):
+            results.append("insufficient")
+            continue
         sentence_words = get_keywords(sentence)
 
         if not sentence_words:
