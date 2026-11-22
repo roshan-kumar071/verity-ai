@@ -1,0 +1,608 @@
+{
+  "dataset_id": "verity_label_review_v1",
+  "source_dataset": "verity_independent_holdout_v1",
+  "purpose": "Separate, provisional review of selected holdout labels",
+  "warning": "Proposed labels are not final ground truth. Human confirmation is required for cases marked needs_human_confirmation. Do not use this file as a final evaluation holdout.",
+  "cases": [
+    {
+      "case_id": "H005",
+      "category": "paraphrase",
+      "claim": "The new tutoring program helped students learn mathematics.",
+      "evidence": "Students enrolled in the tutoring program achieved higher mathematics test scores than their previous scores.",
+      "original_expected_label": "supporting",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Before-and-after score improvement alone does not establish that the tutoring program caused the improvement."
+    },
+    {
+      "case_id": "H046",
+      "category": "conditional_scope",
+      "claim": "The benefit applies to eligible low-income applicants.",
+      "evidence": "Applicants receive the benefit only if their income is below the eligibility threshold and other criteria are met.",
+      "original_expected_label": "supporting",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Eligibility conditions do not establish that an applicant actually applied or that every eligible applicant received the benefit."
+    },
+    {
+      "case_id": "H051",
+      "category": "magnitude",
+      "claim": "The product substantially reduced noise.",
+      "evidence": "Noise levels fell by 1% in the measured room.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "A 1% reduction appears inconsistent with 'substantially reduced'."
+    },
+    {
+      "case_id": "H053",
+      "category": "magnitude",
+      "claim": "The campaign greatly increased awareness.",
+      "evidence": "Surveyed awareness rose from 40% to 42%.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "An increase from 40% to 42% does not ordinarily support 'greatly increased'."
+    },
+    {
+      "case_id": "H054",
+      "category": "magnitude",
+      "claim": "The campaign significantly increased awareness.",
+      "evidence": "Surveyed awareness rose from 40% to 65%.",
+      "original_expected_label": "supporting",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The increase from 40% to 65% is measurable, but the evidence does not establish statistical significance. This decision interprets 'significantly' in the statistical sense."
+    },
+    {
+      "case_id": "H015",
+      "category": "causation",
+      "claim": "Social media use causes anxiety in teenagers.",
+      "evidence": "A survey found that teenagers with higher social media use also reported more anxiety.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Correlation alone does not establish causation."
+    },
+    {
+      "case_id": "H018",
+      "category": "causation",
+      "claim": "The tax increase caused restaurant closures.",
+      "evidence": "Several restaurants closed after the tax increase, but the report did not examine why they closed.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Temporal sequence alone does not establish causation."
+    },
+    {
+      "case_id": "H022",
+      "category": "numeric_mismatch",
+      "claim": "The town’s population reached 50,000 in 2024.",
+      "evidence": "The census recorded 50,000 residents in the town in 2022.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The evidence refers to 2022, not 2024."
+    },
+    {
+      "case_id": "H033",
+      "category": "negation",
+      "claim": "The school’s absence rate did not increase.",
+      "evidence": "The absence rate stayed at 4% in both terms.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "The unchanged 4% absence rate supports no increase."
+    },
+    {
+      "case_id": "H035",
+      "category": "population_outcome",
+      "claim": "The program improved outcomes for adults over 65.",
+      "evidence": "Among adults aged 18–30, completion rates improved after the program.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Evidence concerns ages 18-30, not adults over 65."
+    },
+    {
+      "case_id": "H037",
+      "category": "population_outcome",
+      "claim": "The policy increased employment in rural areas.",
+      "evidence": "Urban employment rose by 3% after the policy began.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Urban employment data does not establish rural employment."
+    },
+    {
+      "case_id": "H041",
+      "category": "population_outcome",
+      "claim": "The redesign increased customer retention.",
+      "evidence": "The redesign increased the number of first-time purchases.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "First-time purchases measure acquisition, not retention."
+    },
+    {
+      "case_id": "H043",
+      "category": "conditional_scope",
+      "claim": "The device works reliably in all weather conditions.",
+      "evidence": "The device operates reliably in dry weather, but its performance in rain was not tested.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Dry-weather performance does not establish all-weather reliability."
+    },
+    {
+      "case_id": "H047",
+      "category": "conditional_scope",
+      "claim": "The treatment is effective regardless of age.",
+      "evidence": "The treatment was effective in adults, but effectiveness in children remains unknown.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Adult effectiveness does not establish effectiveness in children."
+    },
+    {
+      "case_id": "H058",
+      "category": "relevant_not_supportive",
+      "claim": "The school lunch program improved attendance.",
+      "evidence": "Attendance increased from 88% to 93% after the lunch program began, with no other explanation provided.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Attendance rose after the program, but causation is not established."
+    },
+    {
+      "case_id": "H060",
+      "category": "relevant_not_supportive",
+      "claim": "The new filter makes drinking water safer.",
+      "evidence": "Independent tests found that the filter removed 95% of the tested contaminant from water.",
+      "original_expected_label": "supporting",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The test establishes removal of 95% of one tested contaminant, not that the water is broadly safer across relevant contaminants."
+    },
+    {
+      "case_id": "H027",
+      "category": "negation",
+      "claim": "The trial found that the treatment reduced pain.",
+      "evidence": "The trial found no meaningful reduction in pain compared with placebo.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "Evidence reports no meaningful reduction, contrary to the claim."
+    },
+    {
+      "case_id": "H028",
+      "category": "negation",
+      "claim": "The trial found that the treatment reduced pain.",
+      "evidence": "The trial found a meaningful reduction in pain compared with placebo.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "Evidence directly reports a meaningful reduction in pain."
+    },
+    {
+      "case_id": "H029",
+      "category": "negation",
+      "claim": "The company did not miss its delivery target.",
+      "evidence": "The company missed its delivery target by two days.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "Evidence says the company missed its delivery target."
+    },
+    {
+      "case_id": "H030",
+      "category": "negation",
+      "claim": "The company did not miss its delivery target.",
+      "evidence": "The company delivered all orders within the target window.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "All orders arrived within the target window."
+    },
+    {
+      "case_id": "H031",
+      "category": "negation",
+      "claim": "The update did not fix the security vulnerability.",
+      "evidence": "The vulnerability remained exploitable after the update.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "The vulnerability remained exploitable after the update."
+    },
+    {
+      "case_id": "H032",
+      "category": "negation",
+      "claim": "The update did not fix the security vulnerability.",
+      "evidence": "Testing confirmed that the update eliminated the vulnerability.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "Evidence says the update eliminated the vulnerability."
+    },
+    {
+      "case_id": "H034",
+      "category": "negation",
+      "claim": "The school’s absence rate did not increase.",
+      "evidence": "The absence rate rose from 4% to 6%.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "The absence rate increased from 4% to 6%."
+    },
+    {
+      "case_id": "H019",
+      "category": "numeric_mismatch",
+      "claim": "The project reduced costs by 20%.",
+      "evidence": "The audited report found that project costs fell by 20% compared with the previous year.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "The 20% decrease matches the stated comparison."
+    },
+    {
+      "case_id": "H020",
+      "category": "numeric_mismatch",
+      "claim": "The project reduced costs by 20%.",
+      "evidence": "The audited report found that project costs fell by 12% compared with the previous year.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "The evidence reports a 12% decrease rather than 20%."
+    },
+    {
+      "case_id": "H021",
+      "category": "numeric_mismatch",
+      "claim": "The town’s population reached 50,000 in 2024.",
+      "evidence": "The census recorded 50,000 residents in the town in 2024.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "Population, value, location, and year match."
+    },
+    {
+      "case_id": "H023",
+      "category": "numeric_mismatch",
+      "claim": "The battery lasts 10 hours on one charge.",
+      "evidence": "In the standardized test, the battery lasted 8 hours on one charge.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "The standardized test reports 8 hours rather than 10."
+    },
+    {
+      "case_id": "H024",
+      "category": "numeric_mismatch",
+      "claim": "The battery lasts 10 hours on one charge.",
+      "evidence": "The battery was tested at 10 hours of continuous video playback.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "A 10-hour test duration does not establish 10 hours of actual battery runtime."
+    },
+    {
+      "case_id": "H025",
+      "category": "numeric_mismatch",
+      "claim": "Revenue increased from $2 million to $3 million.",
+      "evidence": "Annual revenue rose from $2 million to $3 million.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "The revenue values match: $2 million to $3 million."
+    },
+    {
+      "case_id": "H026",
+      "category": "numeric_mismatch",
+      "claim": "Revenue increased from $2 million to $3 million.",
+      "evidence": "Annual revenue rose from $2 million to $2.5 million.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "The evidence reports $2.5 million rather than $3 million."
+    },
+    {
+      "case_id": "H001",
+      "category": "paraphrase",
+      "claim": "The city’s new bike lanes reduced car traffic downtown.",
+      "evidence": "After protected cycling lanes opened, downtown vehicle counts fell by 12%.",
+      "original_expected_label": "supporting",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Downtown vehicle counts fell by 12% after protected bike lanes opened. The before-and-after association alone does not establish that the bike lanes caused the reduction."
+    },
+    {
+      "case_id": "H002",
+      "category": "paraphrase",
+      "claim": "The city’s new bike lanes reduced car traffic downtown.",
+      "evidence": "Cycling-lane construction finished in June, and downtown vehicle counts were measured in July.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The evidence gives timing but no direction of traffic change or causal evidence."
+    },
+    {
+      "case_id": "H003",
+      "category": "paraphrase",
+      "claim": "Remote work improved employee satisfaction.",
+      "evidence": "Employees working from home reported higher satisfaction scores than before the policy.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "Higher satisfaction scores among remote workers match the claimed outcome."
+    },
+    {
+      "case_id": "H004",
+      "category": "paraphrase",
+      "claim": "Remote work improved employee satisfaction.",
+      "evidence": "Employees said they liked the flexibility of remote work.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Positive comments about flexibility do not establish an overall satisfaction improvement."
+    },
+    {
+      "case_id": "H006",
+      "category": "paraphrase",
+      "claim": "The new tutoring program helped students learn mathematics.",
+      "evidence": "The tutoring program was offered to students who were already struggling in mathematics.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The evidence describes program eligibility or recipients, not learning outcomes."
+    },
+    {
+      "case_id": "H007",
+      "category": "paraphrase",
+      "claim": "The medication shortened recovery time.",
+      "evidence": "Patients receiving the medication recovered in fewer days on average.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "Fewer recovery days directly match shorter recovery time."
+    },
+    {
+      "case_id": "H008",
+      "category": "paraphrase",
+      "claim": "The medication shortened recovery time.",
+      "evidence": "Most patients recovered after taking the medication.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Recovery after medication does not show that recovery was faster."
+    },
+    {
+      "case_id": "H009",
+      "category": "paraphrase",
+      "claim": "The policy lowered household energy use.",
+      "evidence": "Average household electricity consumption was lower after the policy began.",
+      "original_expected_label": "supporting",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Average household electricity consumption was lower after the policy began. The temporal association alone does not establish that the policy caused the reduction."
+    },
+    {
+      "case_id": "H010",
+      "category": "paraphrase",
+      "claim": "The policy lowered household energy use.",
+      "evidence": "The policy was designed to encourage households to conserve electricity.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The policy's stated aim does not demonstrate an actual reduction in energy use."
+    },
+    {
+      "case_id": "H011",
+      "category": "causation",
+      "claim": "Daily exercise prevents depression.",
+      "evidence": "People who exercised daily had lower rates of depression in an observational survey.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "An observational association does not establish that exercise prevents depression."
+    },
+    {
+      "case_id": "H012",
+      "category": "causation",
+      "claim": "The new app caused workers to become more productive.",
+      "evidence": "Workers using the app completed more tasks, but the study did not control for prior productivity.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Prior productivity was not controlled, leaving alternative explanations."
+    },
+    {
+      "case_id": "H013",
+      "category": "causation",
+      "claim": "Eating breakfast increases exam scores.",
+      "evidence": "Students who ate breakfast scored higher, although breakfast habits were not randomly assigned.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The observational comparison does not establish that breakfast caused higher exam scores."
+    },
+    {
+      "case_id": "H014",
+      "category": "causation",
+      "claim": "The factory closure reduced local asthma cases.",
+      "evidence": "Asthma cases declined after the factory closed, and investigators attributed the decline to reduced emissions.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "Investigators explicitly attributed the decline in asthma cases to reduced emissions after the factory closure. Retained provisionally; the attribution method and strength are not specified."
+    },
+    {
+      "case_id": "H016",
+      "category": "causation",
+      "claim": "The training course improved sales.",
+      "evidence": "Sales rose during the quarter in which the course was introduced, while advertising spending also increased substantially.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Advertising spending also increased, so the course's independent effect is unclear."
+    },
+    {
+      "case_id": "H017",
+      "category": "causation",
+      "claim": "Installing insulation lowered heating costs.",
+      "evidence": "A controlled comparison found homes with the new insulation used less heating energy than similar homes without it.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "A controlled comparison of similar homes supports lower heating energy use with insulation."
+    },
+    {
+      "case_id": "H044",
+      "category": "conditional_scope",
+      "claim": "The device works reliably in all weather conditions.",
+      "evidence": "The device failed during heavy rain testing.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "Failure during heavy rain conflicts with reliable operation in all weather conditions."
+    },
+    {
+      "case_id": "H045",
+      "category": "conditional_scope",
+      "claim": "The benefit applies to every applicant.",
+      "evidence": "Applicants receive the benefit only if their income is below the eligibility threshold.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "The benefit has an income eligibility condition, so it does not apply to every applicant."
+    },
+    {
+      "case_id": "H048",
+      "category": "conditional_scope",
+      "claim": "The service is available every day.",
+      "evidence": "The service is available on weekdays only.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "Weekday-only availability conflicts with availability every day."
+    },
+    {
+      "case_id": "H049",
+      "category": "magnitude",
+      "claim": "The intervention dramatically improved test scores.",
+      "evidence": "Average test scores increased slightly after the intervention.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "A slight increase does not match the claim of a dramatic improvement."
+    },
+    {
+      "case_id": "H050",
+      "category": "magnitude",
+      "claim": "The intervention slightly improved test scores.",
+      "evidence": "Average test scores increased modestly after the intervention.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "A modest increase is consistent with a slight improvement."
+    },
+    {
+      "case_id": "H052",
+      "category": "magnitude",
+      "claim": "The product slightly reduced noise.",
+      "evidence": "Measured noise levels fell by 1%.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "A measured 1% reduction matches the claim of a slight reduction."
+    },
+    {
+      "case_id": "H036",
+      "category": "population_outcome",
+      "claim": "The program improved outcomes for adults over 65.",
+      "evidence": "Among adults aged 65 and older, completion rates improved after the program.",
+      "original_expected_label": "supporting",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "The evidence measures completion rates among adults aged 65+, while the claim concerns broader outcomes. The measured metric does not establish the broader claim."
+    },
+    {
+      "case_id": "H038",
+      "category": "population_outcome",
+      "claim": "The policy increased employment in rural areas.",
+      "evidence": "Rural employment fell by 3% after the policy began.",
+      "original_expected_label": "contradicting",
+      "proposed_label": "contradicting",
+      "status": "provisional_retain",
+      "review_note": "Rural employment fell by 3%, opposite to the claimed increase."
+    },
+    {
+      "case_id": "H039",
+      "category": "population_outcome",
+      "claim": "The supplement improved sleep quality.",
+      "evidence": "Participants reported better sleep quality after using the supplement.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "Participants reported better sleep quality, matching the claimed outcome."
+    },
+    {
+      "case_id": "H040",
+      "category": "population_outcome",
+      "claim": "The supplement improved sleep quality.",
+      "evidence": "Participants reported falling asleep faster, but overall sleep quality was not measured.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Falling asleep faster is related to, but not equivalent to, overall sleep quality."
+    },
+    {
+      "case_id": "H042",
+      "category": "population_outcome",
+      "claim": "The redesign increased customer retention.",
+      "evidence": "The share of customers returning within 90 days increased after the redesign.",
+      "original_expected_label": "supporting",
+      "proposed_label": "supporting",
+      "status": "provisional_retain",
+      "review_note": "The share of customers returning within 90 days increased, directly supporting improved retention."
+    },
+    {
+      "case_id": "H055",
+      "category": "relevant_not_supportive",
+      "claim": "The new park reduced neighborhood crime.",
+      "evidence": "The city spent $2 million building the new park.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Construction spending provides context but does not establish a reduction in neighborhood crime."
+    },
+    {
+      "case_id": "H056",
+      "category": "relevant_not_supportive",
+      "claim": "The new park reduced neighborhood crime.",
+      "evidence": "Residents reported that the park is attractive and well maintained.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Positive comments about appearance and maintenance do not establish crime outcomes."
+    },
+    {
+      "case_id": "H057",
+      "category": "relevant_not_supportive",
+      "claim": "The school lunch program improved attendance.",
+      "evidence": "The school lunch program served 12,000 meals last month.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Meal counts measure program activity, not whether attendance improved."
+    },
+    {
+      "case_id": "H059",
+      "category": "relevant_not_supportive",
+      "claim": "The new filter makes drinking water safer.",
+      "evidence": "The filter's packaging uses recyclable materials.",
+      "original_expected_label": "insufficient",
+      "proposed_label": "insufficient",
+      "status": "provisional_retain",
+      "review_note": "Recyclable packaging does not establish drinking-water safety."
+    }
+  ]
+}
