@@ -18,7 +18,7 @@ REALWORLD_CASES = [
         "name": "unrelated_negation",
         "claim": "Regular exercise improves sleep quality.",
         "source": "Regular exercise improves sleep quality, but the study did not measure blood pressure.",
-        "expected": "insufficient",
+        "expected": "supporting",
     },
     {
         "name": "percentage_word_format",
@@ -114,6 +114,62 @@ TARGETED_FAILURE_CASES = [
             "when employees have a quiet workspace."
         ),
         "expected": "insufficient",
+    },
+
+    {
+        "name": "randomized_course_completion_support",
+        "claim": "The revised curriculum improves course completion.",
+        "source": (
+            "In a randomized evaluation, students assigned to the "
+            "revised curriculum completed courses at a higher rate "
+            "than the control group."
+        ),
+        "expected": "supporting",
+    },
+    {
+        "name": "restricted_customer_access",
+        "claim": "All customers can access the platform without restrictions.",
+        "source": "Platform access was available only to premium subscribers.",
+        "expected": "contradicting",
+    },
+    {
+        "name": "unchanged_adverse_events",
+        "claim": "The treatment does not increase adverse events.",
+        "source": (
+            "Adverse-event rates were unchanged between "
+            "the treatment and placebo groups."
+        ),
+        "expected": "supporting",
+    },
+    {
+        "name": "more_frequent_medication_errors",
+        "claim": "The new protocol reduces medication errors.",
+        "source": (
+            "Medication errors were more frequent under the "
+            "new protocol than under standard practice."
+        ),
+        "expected": "contradicting",
+    },
+    {
+        "name": "sensor_measurement_tolerance",
+        "claim": (
+            "The sensor measures room temperature within "
+            "0.5 degrees Celsius."
+        ),
+        "source": (
+            "In calibration trials, sensor readings differed "
+            "from the reference by no more than 0.5 degrees Celsius."
+        ),
+        "expected": "supporting",
+    },
+    {
+        "name": "offline_access_internet_requirement",
+        "claim": "The platform supports offline access.",
+        "source": (
+            "The platform requires an internet connection "
+            "for every session."
+        ),
+        "expected": "contradicting",
     },
 ]
 

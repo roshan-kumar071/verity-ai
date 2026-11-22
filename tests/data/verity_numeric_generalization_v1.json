@@ -1,0 +1,87 @@
+
+[
+  {
+    "id": "G001",
+    "category": "magnitude_numeric_time",
+    "claim": "The treatment reduces recovery time by 25%.",
+    "evidence": "In the clinical trial, the treatment reduced average recovery time by 25%.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "G002",
+    "category": "magnitude_numeric_time",
+    "claim": "The treatment reduces recovery time by 40%.",
+    "evidence": "In the same clinical setting, the treatment reduced average recovery time by 20%.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G003",
+    "category": "magnitude_numeric_time",
+    "claim": "The treatment reduces patient symptoms by 40%.",
+    "evidence": "The treatment reduced patient symptoms by 20%, while 40% of participants reported mild side effects.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G004",
+    "category": "magnitude_numeric_time",
+    "claim": "The unemployment rate decreased by 10%.",
+    "evidence": "The unemployment rate decreased from 10% to 8%, a reduction of 2 percentage points.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G005",
+    "category": "scope",
+    "claim": "The program reduces obesity among adults by 15%.",
+    "evidence": "A study found that the program reduced obesity among children by 15%.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G006",
+    "category": "magnitude_numeric_time",
+    "claim": "The company's revenue increased by 12% in 2025.",
+    "evidence": "The company's revenue increased by 12% in 2024.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G007",
+    "category": "magnitude_numeric_time",
+    "claim": "The new system reduced processing errors by 30%.",
+    "evidence": "Under the same testing conditions, the new system increased processing errors by 30%.",
+    "expected_label": "contradicting"
+  },
+  {
+    "id": "G008",
+    "category": "magnitude_numeric_time",
+    "claim": "The medicine reduces blood pressure by 15%.",
+    "evidence": "The clinical report states that 15% of participants discontinued the study. It does not report a blood pressure reduction.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G009",
+    "category": "magnitude_numeric_time",
+    "claim": "The factory reduced its monthly energy consumption by 20 units.",
+    "evidence": "The factory reduced its monthly energy consumption by 10 units under the same operating conditions.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G010",
+    "category": "scope",
+    "claim": "The software improves performance across all departments.",
+    "evidence": "The software improved performance by 15% in the finance department. Other departments were not evaluated.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "G011",
+    "category": "magnitude_numeric_time",
+    "claim": "The intervention reduces anxiety symptoms by 30%.",
+    "evidence": "The study found a 30% reduction in anxiety symptoms and a 10% reduction in reported sleep problems.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "G012",
+    "category": "causation",
+    "claim": "The training program caused employee productivity to increase by 20%.",
+    "evidence": "Employee productivity increased by 20% after the training program, but the study did not use a control group or examine other possible causes.",
+    "expected_label": "insufficient"
+  }
+]

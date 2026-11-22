@@ -170,11 +170,11 @@ def test_classify_evidence_handles_empty_text():
     )
 
 
-def test_classify_evidence_treats_negation_as_insufficient():
+def test_classify_evidence_treats_definitive_negation_as_contradicting():
     assert classify_evidence(
         "Remote work improves employee productivity.",
         "Remote work does not improve employee productivity.",
-    ) == "insufficient"
+    ) == "contradicting"
 
 
 def test_classify_evidence_treats_ambiguous_statements_as_insufficient():

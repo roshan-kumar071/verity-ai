@@ -1,0 +1,282 @@
+[
+  {
+    "case_id": "D001",
+    "category": "negation",
+    "claim": "The treatment improves recovery.",
+    "evidence": "The treatment does not improve recovery.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D002",
+    "category": "negation",
+    "claim": "The policy increases employment.",
+    "evidence": "The policy failed to increase employment.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D003",
+    "category": "negation",
+    "claim": "The app improves user retention.",
+    "evidence": "The app does not improve user retention.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D004",
+    "category": "negation",
+    "claim": "The program reduces unemployment.",
+    "evidence": "The program never reduced unemployment.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D005",
+    "category": "negation",
+    "claim": "The supplement improves sleep quality.",
+    "evidence": "The supplement may not improve sleep quality.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D006",
+    "category": "negation",
+    "claim": "The new system reduces errors.",
+    "evidence": "The new system reduces errors, but the study did not measure processing speed.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D007",
+    "category": "negation",
+    "claim": "The intervention improves productivity.",
+    "evidence": "The intervention improves productivity, although it does not improve employee satisfaction.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D008",
+    "category": "negation",
+    "claim": "The device reduces energy consumption.",
+    "evidence": "The device does not reduce energy consumption in the tested conditions.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D009",
+    "category": "causation",
+    "claim": "The training program improves employee productivity.",
+    "evidence": "Employees who attended the training had higher productivity scores.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D010",
+    "category": "causation",
+    "claim": "The new diet reduces body weight.",
+    "evidence": "People following the diet were associated with lower average body weight.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D011",
+    "category": "causation",
+    "claim": "The policy reduces traffic accidents.",
+    "evidence": "Traffic accidents declined after the policy was introduced.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D012",
+    "category": "causation",
+    "claim": "The medicine improves recovery.",
+    "evidence": "The clinical trial found that the medicine improved recovery compared with the control group.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D013",
+    "category": "causation",
+    "claim": "The program increases school attendance.",
+    "evidence": "The program caused a measurable increase in school attendance in the controlled trial.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D014",
+    "category": "causation",
+    "claim": "The factory closure reduces local pollution.",
+    "evidence": "Pollution levels declined after the factory closure, but other possible causes were not examined.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D015",
+    "category": "causation",
+    "claim": "The exercise plan improves cardiovascular fitness.",
+    "evidence": "Participants using the exercise plan showed no improvement in cardiovascular fitness compared with the control group.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D016",
+    "category": "causation",
+    "claim": "The software update reduces system crashes.",
+    "evidence": "The software update was followed by fewer system crashes, but the study did not establish the cause.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D017",
+    "category": "scope",
+    "claim": "The treatment improves recovery in children.",
+    "evidence": "The treatment improves recovery in adults.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D018",
+    "category": "scope",
+    "claim": "The service is available every day.",
+    "evidence": "The service is available only on weekdays.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D019",
+    "category": "scope",
+    "claim": "The device works reliably in all weather conditions.",
+    "evidence": "The device works reliably in dry weather, but rain performance was not tested.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D020",
+    "category": "scope",
+    "claim": "The program improves outcomes for all students.",
+    "evidence": "The program improved examination scores among final-year students.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D021",
+    "category": "scope",
+    "claim": "The app improves user retention.",
+    "evidence": "The app improves user satisfaction.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D022",
+    "category": "scope",
+    "claim": "The scheme increases rural employment.",
+    "evidence": "The scheme increased urban employment.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D023",
+    "category": "scope",
+    "claim": "The medicine improves overall health.",
+    "evidence": "The medicine improves sleep quality, but other health outcomes were not measured.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D024",
+    "category": "scope",
+    "claim": "The new policy reduces unemployment among young adults.",
+    "evidence": "The new policy increases unemployment among young adults.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D025",
+    "category": "magnitude_numeric_time",
+    "claim": "The intervention dramatically improves productivity.",
+    "evidence": "The intervention slightly improves productivity.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D026",
+    "category": "magnitude_numeric_time",
+    "claim": "The treatment reduces symptoms by 40%.",
+    "evidence": "The treatment reduces symptoms by 20%.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D027",
+    "category": "magnitude_numeric_time",
+    "claim": "The program increased sales in 2025.",
+    "evidence": "The program increased sales in 2024.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D028",
+    "category": "magnitude_numeric_time",
+    "claim": "The intervention slightly reduces noise levels.",
+    "evidence": "The intervention reduces noise levels by 1%.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D029",
+    "category": "magnitude_numeric_time",
+    "claim": "The policy substantially increases employment.",
+    "evidence": "The policy reduces employment by 5%.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D030",
+    "category": "magnitude_numeric_time",
+    "claim": "The program increases awareness from 40% to 65%.",
+    "evidence": "The program increases awareness from 40% to 42%.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D031",
+    "category": "magnitude_numeric_time",
+    "claim": "The system reduces processing time by 30%.",
+    "evidence": "The system reduces processing time by 30%.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D032",
+    "category": "magnitude_numeric_time",
+    "claim": "The policy reduced accidents in 2025.",
+    "evidence": "The policy increased accidents in 2025.",
+    "expected_label": "contradicting"
+  },
+  {
+    "case_id": "D033",
+    "category": "mixed_ambiguous",
+    "claim": "The program improves employee productivity.",
+    "evidence": "The program improved productivity in one department but reduced it in another.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D034",
+    "category": "mixed_ambiguous",
+    "claim": "The treatment reduces pain.",
+    "evidence": "The treatment may reduce pain in some patients.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D035",
+    "category": "mixed_ambiguous",
+    "claim": "The new system improves performance.",
+    "evidence": "The new system improves performance, but results vary across test environments.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D036",
+    "category": "mixed_ambiguous",
+    "claim": "The program increases customer retention.",
+    "evidence": "The program increased the number of first-time purchases.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D037",
+    "category": "mixed_ambiguous",
+    "claim": "The filter improves water safety.",
+    "evidence": "The filter removed 95% of the tested contaminant, but other contaminants were not tested.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D038",
+    "category": "mixed_ambiguous",
+    "claim": "The program improves school attendance.",
+    "evidence": "Attendance increased from 88% to 93% after the program, but no control group was used.",
+    "expected_label": "insufficient"
+  },
+  {
+    "case_id": "D039",
+    "category": "mixed_ambiguous",
+    "claim": "The device reduces energy consumption.",
+    "evidence": "The device reduced energy consumption by 10% in the tested laboratory conditions.",
+    "expected_label": "supporting"
+  },
+  {
+    "case_id": "D040",
+    "category": "mixed_ambiguous",
+    "claim": "The new policy improves public transport reliability.",
+    "evidence": "The new policy improved public transport reliability, but the evaluation covered only one city.",
+    "expected_label": "insufficient"
+  }
+]

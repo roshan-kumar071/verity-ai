@@ -47,7 +47,7 @@ CASES = [
         "name": "negated_claim",
         "claim": "Remote work improves employee productivity.",
         "source": "Remote work does not improve employee productivity.",
-        "expected": "insufficient",
+        "expected": "contradicting",
     },
     {
         "name": "different_subject_health",
@@ -184,12 +184,18 @@ CASES = [
             "Although exercise is popular, regular exercise "
             "does not improve sleep quality."
         ),
-        "expected": "insufficient",
+        "expected": "contradicting",
     },
     {
         "name": "same_topic_opposite_outcome",
         "claim": "Using SSDs improves computer startup speed.",
         "source": "Using SSDs reduces computer startup speed.",
+        "expected": "contradicting",
+    },
+    {
+        "name": "percentage_change_target_mismatch",
+        "claim": "The program increases awareness from 40% to 65%.",
+        "source": "The program increases awareness from 40% to 42%.",
         "expected": "contradicting",
     },
 ]

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "C001",
+    "category": "semantic_paraphrase",
+    "claim": "The redesigned dashboard makes report generation quicker.",
+    "evidence": "Analysts produced reports in less time using the redesigned dashboard than the previous version.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "C002",
+    "category": "semantic_paraphrase",
+    "claim": "The backup system preserves files during power outages.",
+    "evidence": "During simulated power outages, files were lost despite the backup system being active.",
+    "expected_label": "contradicting"
+  },
+  {
+    "id": "C003",
+    "category": "scope_condition",
+    "claim": "The new packaging keeps medicine stable during transport.",
+    "evidence": "The medicine remained stable during refrigerated transport, but stability at room temperature was not assessed.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "C004",
+    "category": "semantic_paraphrase",
+    "claim": "The irrigation method conserves water.",
+    "evidence": "In a controlled trial, fields using the method consumed 22% less water than fields using conventional irrigation.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "C005",
+    "category": "polarity",
+    "claim": "The intervention increases reading scores.",
+    "evidence": "Students receiving the intervention scored lower than students in the comparison group.",
+    "expected_label": "contradicting"
+  },
+  {
+    "id": "C006",
+    "category": "causation",
+    "claim": "Remote work increases employee productivity.",
+    "evidence": "Remote work participation was correlated with higher employee productivity ratings.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "C007",
+    "category": "causation",
+    "claim": "The revised curriculum improves course completion.",
+    "evidence": "In a randomized evaluation, students assigned to the revised curriculum completed courses at a higher rate than the control group.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "C008",
+    "category": "polarity",
+    "claim": "The protective coating prevents corrosion.",
+    "evidence": "Corrosion developed on coated samples during controlled salt-spray testing.",
+    "expected_label": "contradicting"
+  },
+  {
+    "id": "C009",
+    "category": "scope_condition",
+    "claim": "All customers can access the platform without restrictions.",
+    "evidence": "Platform access was available only to premium subscribers.",
+    "expected_label": "contradicting"
+  },
+  {
+    "id": "C010",
+    "category": "numeric_context",
+    "claim": "The filter removes 90% of chlorine.",
+    "evidence": "Chlorine concentration was 90% lower after filtration.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "C011",
+    "category": "numeric_context",
+    "claim": "The machine reduces waste by 30 kg per day.",
+    "evidence": "Waste fell by 12 kg per day under the same production volume.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "C012",
+    "category": "numeric_context",
+    "claim": "The sensor reduces false alarms by 20%.",
+    "evidence": "Under the same test protocol, the sensor increased false alarms by 20%.",
+    "expected_label": "contradicting"
+  },
+  {
+    "id": "C013",
+    "category": "scope_condition",
+    "claim": "The program improves employee mental health.",
+    "evidence": "Participants reported better sleep, but anxiety and depression were not assessed.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "C014",
+    "category": "negation_paraphrase",
+    "claim": "The treatment does not increase adverse events.",
+    "evidence": "Adverse-event rates were unchanged between the treatment and placebo groups.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "C015",
+    "category": "polarity",
+    "claim": "The new protocol reduces medication errors.",
+    "evidence": "Medication errors were more frequent under the new protocol than under standard practice.",
+    "expected_label": "contradicting"
+  },
+  {
+    "id": "C016",
+    "category": "mixed_outcomes",
+    "claim": "The device improves signal strength and battery life.",
+    "evidence": "Signal strength increased, but battery life declined.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "C017",
+    "category": "scope_condition",
+    "claim": "The therapy reduces symptoms in patients with moderate disease.",
+    "evidence": "The therapy reduced symptoms in patients with mild disease.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "C018",
+    "category": "uncertainty",
+    "claim": "The sensor detects gas leaks.",
+    "evidence": "Preliminary findings suggest that the sensor may detect some gas leaks.",
+    "expected_label": "insufficient"
+  },
+  {
+    "id": "C019",
+    "category": "semantic_paraphrase",
+    "claim": "The sensor measures room temperature within 0.5 degrees Celsius.",
+    "evidence": "In calibration trials, sensor readings differed from the reference by no more than 0.5 degrees Celsius.",
+    "expected_label": "supporting"
+  },
+  {
+    "id": "C020",
+    "category": "polarity",
+    "claim": "The platform supports offline access.",
+    "evidence": "The platform requires an internet connection for every session.",
+    "expected_label": "contradicting"
+  }
+]
