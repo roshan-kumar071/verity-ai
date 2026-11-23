@@ -14,3 +14,9 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+# Local backup and recovery files
+*.backup
+*.bak
+*.recovery-copy
+*.numeric-backup
+*_recovery_backup.py

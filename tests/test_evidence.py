@@ -315,3 +315,102 @@ def test_classify_evidence_does_not_confuse_different_education_topics():
     )
 
     assert result == "insufficient"
+
+
+def test_compare_evidence_preserves_classification_with_explanation():
+    claim = "Remote work improves employee productivity."
+
+    sources = [
+        {
+            "title": "Supporting",
+            "content": "Remote work improves employee productivity.",
+        },
+        {
+            "title": "Contradicting",
+            "content": "Remote work reduces employee productivity.",
+        },
+        {
+            "title": "Insufficient",
+            "content": "Remote work may improve employee productivity.",
+        },
+    ]
+
+    result = compare_evidence(claim, sources)
+
+    groups = (
+        ("supporting", result["supporting"]),
+        ("contradicting", result["contradicting"]),
+        ("insufficient", result["insufficient"]),
+    )
+
+    for expected_label, items in groups:
+        for item in items:
+            assert item["classification"] == expected_label
+            assert item["reason_code"]
+            assert item["reason"]
+            assert item["evidence_signal"]
+            assert item["explanation"]
+
+
+def test_compare_evidence_keeps_mixed_findings_in_insufficient_group():
+    claim = "Remote work improves employee productivity."
+
+    sources = [
+        {
+            "title": "Mixed findings",
+            "content": (
+                "Remote work improves productivity in focused tasks, "
+                "but reduces productivity in collaborative tasks."
+            ),
+        }
+    ]
+
+    result = compare_evidence(claim, sources)
+
+    assert len(result["insufficient"]) == 1
+
+    item = result["insufficient"][0]
+
+    assert item["classification"] == "insufficient"
+    assert item["reason_code"] == "mixed_findings"
+
+
+def test_compare_evidence_preserves_original_classification():
+    claim = "Remote work improves employee productivity."
+
+    sources = [
+        {
+            "title": "Supporting source",
+            "content": "Remote work improves employee productivity.",
+        }
+    ]
+
+    result = compare_evidence(claim, sources)
+
+    item = result["supporting"][0]
+
+    assert item["classification"] == "supporting"
+    assert item["reason_code"] == "outcome_alignment"
+
+
+def test_compare_evidence_returns_all_explanation_fields():
+    result = compare_evidence(
+        "Remote work improves employee productivity.",
+        [
+            {
+                "title": "Unclear source",
+                "content": "Remote work may improve employee productivity.",
+            }
+        ],
+    )
+
+    item = result["insufficient"][0]
+
+    required_fields = {
+        "reason_code",
+        "reason",
+        "evidence_signal",
+        "explanation",
+    }
+
+    assert required_fields.issubset(item.keys())

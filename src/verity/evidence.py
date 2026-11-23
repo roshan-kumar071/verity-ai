@@ -200,11 +200,32 @@ def extract_numeric_measurements(text: str) -> list[dict]:
 
     return measurements
 
-
 def numeric_context_matches(first: dict, second: dict) -> bool:
     """Check whether two measurements describe a similar outcome."""
-    first_words = get_keywords(first["context"])
-    second_words = get_keywords(second["context"])
+    generic_words = {
+        "increased",
+        "decreased",
+        "improved",
+        "reduced",
+        "treatment",
+        "patient",
+        "patients",
+        "study",
+        "result",
+        "results",
+        "reported",
+        "measured",
+        "showed",
+        "found",
+        "units",
+    }
+
+    first_words = (
+        get_keywords(first["context"]) - generic_words
+    )
+    second_words = (
+        get_keywords(second["context"]) - generic_words
+    )
 
     if not first_words or not second_words:
         return False
@@ -269,6 +290,7 @@ def has_uncovered_claim_parts(claim: str, sentence: str) -> bool:
 
 def compare_evidence(claim: str, sources: list[dict]) -> dict:
     """Classify source text as preliminary evidence for a claim."""
+    from .explanations import explain_classification
     supporting = []
     contradicting = []
     insufficient = []
@@ -291,6 +313,17 @@ def compare_evidence(claim: str, sources: list[dict]) -> dict:
         }
 
         classification = classify_evidence(claim, content)
+
+        explanation = explain_classification(
+            claim,
+            content,
+            classification,
+        )
+
+        item.update({
+            "classification": classification,
+            **explanation,
+        })
 
         if classification == "supporting":
             supporting.append(item)
